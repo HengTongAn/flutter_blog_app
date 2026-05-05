@@ -1,4 +1,3 @@
-import 'package:flutter_blog_application/app/constant/app_config.dart';
 import 'package:flutter_blog_application/app/data/model/req/login_req.model.dart';
 import 'package:flutter_blog_application/app/data/model/req/register_req.model.dart';
 import 'package:flutter_blog_application/flavors.dart';
@@ -31,7 +30,16 @@ class ApiProvider extends GetxService {
   }
 
   Future<Response<dynamic>> login(LoginReq req) async {
-    return _dio.post("/login", data: req.toJson());
+    return _dio.post(
+      "/login?token=123",
+      data: req.toJson(),
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": 'application/json',
+        },
+      ),
+    );
   }
 
   Future<Response<dynamic>> register(RegisterReq req) async {

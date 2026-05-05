@@ -1,18 +1,23 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blog_application/app/modules/app_view.dart';
+import 'package:flutter_blog_application/app/modules/login/views/login_view.dart';
+import 'package:flutter_blog_application/app/routes/app_pages.dart';
+import 'package:get/get.dart';
 
 import 'flavors.dart';
-import 'pages/my_home_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: F.title,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: _flavorBanner(child: MyHomePage(), show: kDebugMode),
+      home: _flavorBanner(child: AppView(), show: !kDebugMode),
+      getPages: AppPages.routes,
     );
   }
 

@@ -1,23 +1,23 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_blog_application/app/data/model/req/register_req.model.dart';
+import 'package:flutter_blog_application/app/data/provider/api_provider.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
-  //TODO: Implement RegisterController
+  final _provider = Get.find<ApiProvider>();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void register(RegisterReq req) async {
+    try {
+      final response = await _provider.register(req);
+      if (response.statusCode == 200) {
+        /// success
+        Get.back(result: true);
+        return;
+      }
+      throw Exception(response.data['message']);
+    } catch (e) {
+      debugPrint("Error message: ${e.toString()}");
+      Get.snackbar("Error", e.toString());
+    }
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

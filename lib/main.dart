@@ -5,6 +5,7 @@ import 'app.dart';
 import 'flavors.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   F.appFlavor = Flavor.values.firstWhere(
     (element) => element.name == appFlavor,
   );
