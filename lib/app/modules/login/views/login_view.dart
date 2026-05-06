@@ -18,7 +18,6 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Login"), centerTitle: true),
       body: SafeArea(
         child: Form(
           key: _formKey,
@@ -27,8 +26,6 @@ class LoginView extends GetView<LoginController> {
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   spacing: 8,
                   children: [
                     TextFormFieldCus(
@@ -71,7 +68,14 @@ class LoginView extends GetView<LoginController> {
                     ),
                     Row(
                       children: [
-                        Text("Don't have an account?"),
+                        Text(
+                          "Don't have an account?",
+                          style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 13,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                         TextButton(
                           onPressed: () {
                             Get.toNamed(Routes.REGISTER);

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_blog_application/app/constants/colors.dart';
 import 'package:flutter_blog_application/component/style/border_style.dart';
+import 'package:flutter_blog_application/theme/app_text_style.dart';
 
 class TextFormFieldCus extends StatelessWidget {
   const TextFormFieldCus({
@@ -21,10 +23,18 @@ class TextFormFieldCus extends StatelessWidget {
       validator: validator,
       decoration: InputDecoration(
         hintText: hintText,
-        border: border,
-        focusedBorder: border,
-        enabledBorder: border,
-        prefixIcon: Icon(icon),
+        border: InputBorder.none,
+        focusedBorder: BorderStyling.focusedBorder,
+        enabledBorder: BorderStyling.border,
+        errorBorder: BorderStyling.errorBorder,
+        prefixIcon: Icon(icon, color: AppColors.mediumGrey),
+        errorStyle: AppTextStyle.errorTextStyle,
+        filled: true,
+        fillColor: AppColors.lightAliceBlue,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 16,
+        ),
       ),
     );
   }

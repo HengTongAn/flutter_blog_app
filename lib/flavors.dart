@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_blog_application/app/constant/app_config.dart';
+import 'package:flutter_blog_application/app/constants/app_config.dart';
 
 enum Flavor { dev, prod }
 
